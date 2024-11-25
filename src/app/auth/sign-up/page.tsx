@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { Suspense } from "react"
 
 import { SignUpForm } from "@/features/auth/components/sign-up-form"
 
@@ -10,7 +11,9 @@ export const metadata: Metadata = {
 const SignUpPage = () => {
     return (
         <div className="w-full flex min-h-screen justify-center items-center px-3 md:px-0">
-            <SignUpForm />
+            <Suspense fallback={<div>Loading...</div>}>
+                <SignUpForm />
+            </Suspense>
         </div>
     )
 }
